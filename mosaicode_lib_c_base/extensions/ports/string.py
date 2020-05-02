@@ -1,16 +1,16 @@
 from mosaicode.model.port import Port
 
-class Float(Port):
+class String(Port):
 
     def __init__(self):
         Port.__init__(self)
         self.language = "c"
-        self.type = "mosaicode_lib_c_base.extensions.ports.float"
-        self.hint = "FLOAT"
+        self.type = "mosaicode_lib_c_base.extensions.ports.string"
+        self.hint = "STR"
         self.color = "#fc2300"
         self.multiple = True
         self.code = """
-    $output$ = (float_callback *) realloc($output$, ($output$_size + 1 ) * sizeof(float_callback));
+    $output$ = realloc($output$, ($output$_size + 1 ) * sizeof($input$));
     $output$[$output$_size] = &$input$;
     $output$_size++;
 """

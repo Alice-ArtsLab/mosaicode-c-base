@@ -10,7 +10,7 @@ class Integer(Port):
         self.color = "#fc2300"
         self.multiple = True
         self.code = """
-    $output$ = (integer_callback *) realloc($output$, ($output$_size + 1 ) * sizeof(integer_callback));
+    $output$ = realloc($output$, ($output$_size + 1 ) * sizeof($input$));
     $output$[$output$_size] = &$input$;
     $output$_size++;
 """
