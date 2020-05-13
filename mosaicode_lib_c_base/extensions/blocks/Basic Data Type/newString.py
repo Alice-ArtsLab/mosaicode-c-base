@@ -16,7 +16,7 @@ class NewString(BlockModel):
         self.language = "c"
         self.extension = "base"
         self.help = "Creates new literal value (String)."
-        self.label = "New String"
+        self.label = "NewString"
         self.color = "189:51:164:255"
         self.ports = [{"type":"mosaicode_lib_c_base.extensions.ports.string",
                        "name":"string_value",
@@ -28,13 +28,16 @@ class NewString(BlockModel):
                             "type": MOSAICODE_STRING,
                             "value": ""}]
 
-# -------------------C/OpenCv code------------------------------------
-
         self.codes["declaration"] = \
 """
-    char ** $port[double]$ = calloc(1, sizeof(char*));
-    $port[double]$[0] = calloc(strlen($prop[value]$) + 1, sizeof(char));
-    *($port[double]$) = \"$prop[value]$\";
-"""
+typedef void (*$label$_$id$_callback_t)(char * value);
+$label$_$id$_callback_t* $port[string_value]$;
+int $port[string_value]$_size = 0;
 
-# -----------------------------------------------------------------------------
+void $label$_$id$_callback(void * data){
+    for(int i=0 ; i < $port[string_value]$_size ; i++){
+        // Call the stored functions
+        (*($port[string_value]$[i]))(\"$prop[string_value]$\");
+    }
+}
+"""
