@@ -16,14 +16,14 @@ class NewInteger(BlockModel):
         self.language = "c"
         self.extension = "base"
         self.help = "Creates new literal value (Integer)."
-        self.label = "New Int"
+        self.label = "NewInt"
         self.color = "189:51:164:255"
         self.ports = [{"type":"mosaicode_lib_c_base.extensions.ports.integer",
                         "name":"interger_value",
                         "label":"Integer Value",
                         "conn_type":"Output"}]
         self.group = "Basic Data Type"
-        self.properties = [{"name": "intege_valuer",
+        self.properties = [{"name": "integer_value",
                             "label": "Integer Value",
                             "type": MOSAICODE_INT,
                             "lower": 0,
@@ -36,7 +36,16 @@ class NewInteger(BlockModel):
 
         self.codes["declaration"] = \
 """
-    int $port[integer_value]$ = $prop[integer_value]$;
+typedef void (*$label$_$id$_callback_t)(integer value);
+$label$_$id$_callback_t* $port[integer_value]$;
+int $port[integer_value]$_size = 0;
+
+void $label$_$id$_callback(void * data){
+    for(int i=0 ; i < $port[integer_value]$_size ; i++){
+        // Call the stored functions
+        (*($port[integer_value]$[i]))($prop[integer_value]$);
+    }
+}
 """
 
 # -----------------------------------------------------------------------------
