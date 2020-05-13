@@ -10,8 +10,8 @@ class String(Port):
         self.color = "#fc2300"
         self.multiple = True
         self.code = """
-    $output$ = realloc($output$, ($output$_size + 1 ) * sizeof($input$));
+    $output$ = realloc($output$, ($output$_size + 1 ) * sizeof(void *));
     $output$[$output$_size] = &$input$;
     $output$_size++;
 """
-        self.var_name = "$port[name]$$block[id]$"
+        self.var_name = "$block[label]$_$block[id]$_$port[name]$"
