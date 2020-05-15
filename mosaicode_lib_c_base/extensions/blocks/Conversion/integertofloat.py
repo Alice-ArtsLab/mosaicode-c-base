@@ -32,6 +32,7 @@ class IntegerToFloat(BlockModel):
         self.codes["declaration"] = \
 """
 typedef void (*$label$_$id$_callback_t)(float value);
+
 $label$_$id$_callback_t* $port[result]$;
 int $port[result]$_size = 0;
 int $label$_$id$_value0$ = 0;
