@@ -17,14 +17,14 @@ class NewString(BlockModel):
         self.extension = "base"
         self.help = "Creates new literal value (String)."
         self.label = "NewString"
-        self.color = "189:51:164:255"
+        self.color = "78:87:130:200"
         self.ports = [{"type":"mosaicode_lib_c_base.extensions.ports.string",
                        "name":"string_value",
-                       "label":"String Value",
+                       "label":"String value",
                        "conn_type":"Output"}]
         self.group = "Basic Data Type"
         self.properties = [{"name": "string_value",
-                            "label": "String Value",
+                            "label":"String value",
                             "type": MOSAICODE_STRING,
                             "value": ""}]
 
