@@ -39,9 +39,6 @@ $label$_$id$_value0[1] = \'\\0\';
 
 void $port[input0]$(char value){
     $label$_$id$_value0[0]  = value;
-}
-
-void $label$_$id$_callback(void * data){
     for(int i=0 ; i < $port[result]$_size ; i++){
         // Call the stored functions
         (*($port[result]$[i]))($label$_$id$_value0);

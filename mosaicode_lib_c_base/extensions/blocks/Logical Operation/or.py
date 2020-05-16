@@ -55,13 +55,14 @@ int $label$_$id$_value1 = $prop[input1]$;
 
 void $port[input0]$(int value){
     $label$_$id$_value0  = value;
+    for(int i=0 ; i < $port[result]$_size ; i++){
+        // Call the stored functions
+        (*($port[result]$[i]))($label$_$id$_value0 || $label$_$id$_value1);
+    }
 }
 
 void $port[input1]$(int value){
     $label$_$id$_value1  = value;
-}
-
-void $label$_$id$_callback(void * data){
     for(int i=0 ; i < $port[result]$_size ; i++){
         // Call the stored functions
         (*($port[result]$[i]))($label$_$id$_value0 || $label$_$id$_value1);

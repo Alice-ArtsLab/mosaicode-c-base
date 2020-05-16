@@ -39,9 +39,6 @@ int $label$_$id$_value0$ = 0;
 
 void $port[input0]$(int value){
     $label$_$id$_value0  = value;
-}
-
-void $label$_$id$_callback(void * data){
     for(int i=0 ; i < $port[result]$_size ; i++){
         // Call the stored functions
         (*($port[result]$[i]))((float)$label$_$id$_value0);
